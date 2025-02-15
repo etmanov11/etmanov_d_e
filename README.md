@@ -48,4 +48,42 @@
 
 ![image](https://github.com/user-attachments/assets/6a3489da-2a18-4f83-a972-520199bcc0aa)
 
+Перед выполнением команды git clone https://github.com/skl256/grafana_stack_for_docker.git нужно установить git командой sudo dnf install git-core. 
 
+![image](https://github.com/user-attachments/assets/5be48d5c-deff-4200-b269-7ec6a4f3b726)
+
+После успешной установки git можно выполнить команду git clone https://github.com/skl256/grafana_stack_for_docker.git. При выполнении данной команды, Git создаст новую папку с именем репозитория (в данном случае `grafana_stack_for_docker`) в текущем каталоге, и скопирует все файлы и историю из удалённого репозитория в эту папку.
+
+![image](https://github.com/user-attachments/assets/5ba1c456-f22f-40e0-83ad-b2d315875086)
+
+Далее выполняем команду cd grafana_stack_for_docker, с ее помощью мы переходим в директорию grafana_stack_for_docker.
+
+![image](https://github.com/user-attachments/assets/86b1df2a-c4d5-4de0-8847-bb68587a9ec5)
+
+После этого можно из директории grafana_stack_for_docker выполнять команду sudo mkdir -p /mnt/common_volume/swarm/grafana/config. В результате выполнения этой команды будет создан каталог `/mnt/common_volume/swarm/grafana/config`, даже если родительские каталоги (`/mnt/common_volume/swarm/grafana`) отсутствуют. Если каталог уже существует, команда не вызовет ошибку и просто завершится успешно.
+
+![image](https://github.com/user-attachments/assets/c757bda5-12ce-40f3-84bc-ab82cfb06000)
+
+Далее нужно с помощью команды sudo mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data,prometheus-data} создать новую директорию.
+
+![image](https://github.com/user-attachments/assets/c9431c80-58f2-4437-8598-ee9e5a52f67d)
+
+После создания новой директории уже можно выполнить команду sudo chown -R $(id -u):$(id -g) {/mnt/common_volume/swarm/grafana/config,/mnt/common_volume/grafana}, благодаря которой  владельцем и группой для всех файлов и поддиректорий в указанных директориях станут текущий пользователь и его группа. Это может быть полезно для обеспечения доступа к файлам для текущего пользователя, особенно в сценариях, где используются общие директории или контейнеры.
+
+![image](https://github.com/user-attachments/assets/24c014ed-b4e3-4c94-88a7-1165861c560c)
+
+После этого командой touch /mnt/common_volume/grafana/grafana-config/grafana.ini  создадим пустой файл с этим именем по указанному пути. Если файл уже существует, команда просто обновит время его последнего доступа и модификации, не изменяя его содержимое. 
+
+![image](https://github.com/user-attachments/assets/90b45131-9b78-4fa2-b7da-86e90df841db)
+
+Далее командой `cp config/* /mnt/common_volume/swarm/grafana/config/` копируем все файлы из директории `config` в директорию `/mnt/common_volume/swarm/grafana/config/`. Если в целевой директории уже существуют файлы с такими же именами, данной командой они будут перезаписаны без предупреждения (если не указаны дополнительные параметры, такие как `-i` для интерактивного режима, который запрашивает подтверждение перед перезаписью). 
+
+![image](https://github.com/user-attachments/assets/a86b05d2-94aa-43c2-8091-0f4c7e1f1a00)
+
+Далее выполняем команду sudo mv grafana.yaml docker-compose.yaml. Данная команда переименовывает файл `grafana.yaml` в `docker-compose.yaml`. Если файл `docker-compose.yaml` уже существует, он будет перезаписан без предупреждения.
+
+![image](https://github.com/user-attachments/assets/d4f0d07c-a775-425a-8366-f306f06c1d42)
+
+После этого запускаем команду `sudo docker compose up -d`, которая запускает контейнеры, определенные в файле `docker-compose.yml`, с правами суперпользователя и в фоновом режиме.
+
+![image](https://github.com/user-attachments/assets/828f7622-d9a1-492c-8358-6c329297219b)
