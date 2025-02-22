@@ -152,7 +152,6 @@ __2. Установка и работа с Docker__
 Далее выполняем команду 
 
 `sudo mv grafana.yaml docker-compose.yaml`
-
 Данная команда переименовывает файл `grafana.yaml` в `docker-compose.yaml`. Если файл `docker-compose.yaml` уже существует, он будет перезаписан без предупреждения.
 
 ![image](https://github.com/user-attachments/assets/d4f0d07c-a775-425a-8366-f306f06c1d42)
@@ -164,3 +163,53 @@ __2. Установка и работа с Docker__
 которая запускает контейнеры, определенные в файле `docker-compose.yml`, с правами суперпользователя и в фоновом режиме.
 
 ![image](https://github.com/user-attachments/assets/828f7622-d9a1-492c-8358-6c329297219b)
+
+__4 Пара__
+
+Запускаем docker compose командой 
+
+`sudo docker compose up -d`,
+
+которая запускает контейнеры, определенные в файле `docker-compose.yml`, с правами суперпользователя и в фоновом режиме.
+Флаг `-d` в команде `sudo docker compose up -d` означает, что Docker Compose должен запустить контейнеры в фоновом режиме (detached mode). Это позволяет вам продолжать использовать терминал для выполнения других команд, в то время как контейнеры работают в фоновом режиме.
+
+Если не использовать флаг `-d`, команда `docker compose up` будет блокировать терминал, выводя логи контейнеров, и вы не сможете выполнять другие команды, пока не остановите выполнение этой команды (обычно с помощью `Ctrl+C`). 
+
+![image](https://github.com/user-attachments/assets/35b45cb5-2776-4697-92b5-aa59d695a7bb)
+
+Теперь используем команду для удаления контейнеров и остановки
+
+`sudo docker compose down`,
+
+которая используется для полной остановки и удаления всех ресурсов, связанных с проектом Docker Compose, что позволяет вернуть систему в начальное состояние.
+
+![image](https://github.com/user-attachments/assets/90a033f1-305e-4670-9d2d-0df361b076ee)
+
+Теперь нужно заново запустить docker-compose комадой 
+
+`sudo docker compose up -d`
+
+![image](https://github.com/user-attachments/assets/bb6abe49-c875-43e0-a2cc-5f3dd5ba2bbd)
+
+После этого используем команду 
+
+`sudo docker compose stop`,
+
+которая используется для безопасной остановки всех контейнеров, определенных в Docker Compose, без их удаления.
+
+![image](https://github.com/user-attachments/assets/a18dae54-7948-4f1b-82bd-a1bb9ab8ff17)
+
+После очередного запуска docker-compose командой `sudo docker compose up -d` выполняем команду 
+
+`sudo docker compose ps`,
+
+которая позволяет быстро получить представление о состоянии всех контейнеров, которые определены в вашем файле `docker-compose.yml`, и узнать, какие из них активны в данный момент.
+
+![image](https://github.com/user-attachments/assets/d0ff73c1-40e4-4daa-9aa3-f40c966226b7)
+
+
+
+
+
+
+
