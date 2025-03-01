@@ -207,9 +207,60 @@ __4 Пара__
 
 ![image](https://github.com/user-attachments/assets/d0ff73c1-40e4-4daa-9aa3-f40c966226b7)
 
+Используем команду 
+
+`pwd`
+
+![image](https://github.com/user-attachments/assets/86d81208-6e36-487a-b505-7369e9ba93ec)
+
+
 __5 пара__
 
-Из найденного репозитория были скачаны файлы `docker-compose.yaml` и `prometeus.yaml`. Этм файлы были загружены в личный 
+Из найденного репозитория были скачаны файлы `docker-compose.yaml` и `prometeus.yaml`. Эти файлы были загружены в личный репозиторий и командой 
+
+`git clone https://github.com/etmanov11/etmanov_d_e.git`
+
+устанавливаем их в папку `grafana_stack_for_docker`.
+
+![image](https://github.com/user-attachments/assets/39831f2a-1fd0-4512-854a-510ce19310ac)
+
+Перед выполнением следующих шагов нужно сохранить файл `docker-compose.yaml` в другой папке, чтобы в случае неправильной работы нового файла можно было восстановить старый и работать с ним. Копируем файл `docker-compose.yaml` командой
+
+`cp docker-compose.yaml /home/etmanov`
+
+![image](https://github.com/user-attachments/assets/ccf135f6-bbfa-416d-9622-cbb054d38bde)
+
+Теперь заменим файл `docker-compose.yaml` на другой файл `docker-compose.yaml` командой 
+
+`mv docker-compose.yaml /home/etmanov/grafana_stack_for_docker/docker-compose.yaml`
+
+![image](https://github.com/user-attachments/assets/a1255f99-0c7e-4b8d-9ab1-da762f729b1a)
+
+После этого переходим в папку `/mnt/common_volume/swarm/grafana/config` командой 
+
+`cd /mnt/common_volume/swarm/grafana/config`,
+
+в которой находится файл `prometheus.yaml`
+
+![image](https://github.com/user-attachments/assets/ad380954-2a9e-4297-afed-4a2563c64059)
+
+Следующим шагом открывает файл `prometheus.yaml` в редакторе vim командой 
+
+`vi prometheus.yaml`
+
+и меняем в списке `targets` первую переменную на `exporter:9100`
+
+![image](https://github.com/user-attachments/assets/df18763e-066c-4cc7-a0e9-2cbd7160ae41)
+
+![image](https://github.com/user-attachments/assets/69c6eeff-917e-4086-aef1-c53c21cd53e0)
+
+
+
+
+
+
+
+
 
 
 
