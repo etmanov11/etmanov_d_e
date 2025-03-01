@@ -207,6 +207,10 @@ __4 Пара__
 
 ![image](https://github.com/user-attachments/assets/d0ff73c1-40e4-4daa-9aa3-f40c966226b7)
 
+__5 пара__
+
+Из найденного репозитория были скачаны файлы `docker-compose.yaml` и `prometeus.yaml`. Этм файлы были загружены в личный 
+
 
 
 
