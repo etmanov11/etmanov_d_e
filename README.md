@@ -211,6 +211,8 @@ __4 Пара__
 
 `pwd`
 
+Она выводит адрес текущего рабочего каталога
+
 ![image](https://github.com/user-attachments/assets/86d81208-6e36-487a-b505-7369e9ba93ec)
 
 
@@ -254,9 +256,43 @@ __5 пара__
 
 ![image](https://github.com/user-attachments/assets/69c6eeff-917e-4086-aef1-c53c21cd53e0)
 
+После этого нужно нажать Esc -> Shift + : -> ввести wq! -> Enter, чтобы выйти из редактора vim с сохранением.
 
+Перемещаем файл prometheus.yaml в /mnt/common_volume/swarm/grafana/config/ заменяя предыдущий файл командой
 
+`sudo mv prometheus.yaml /mnt/common_volume/swarm/grafana/config/`
 
+Теперь запускаем контейнеры, определенные в файле `docker-compose.yml` командой 
+
+`sudo docker compose up -d`
+
+![image](https://github.com/user-attachments/assets/7d2fd40c-1486-4358-b9ea-544eb8f10a52)
+
+После этого переходим в браузер и в поисковой строке вводим 
+
+`localhost:3000`
+
+![image](https://github.com/user-attachments/assets/09df10bd-5dab-48f2-9e29-7d1fec4895ca)
+
+После того как зашли в главное меню, нужно создать `Dashboards`. Все необходимые шаги показаны ниже.
+
+![image](https://github.com/user-attachments/assets/bbaf7f61-6b47-4879-94bf-f6117e788c74)
+
+![image](https://github.com/user-attachments/assets/67761ca5-a142-42e0-8922-3a0d67a61ed1)
+
+![image](https://github.com/user-attachments/assets/ee47952b-418a-4871-a8e0-2cb7c87c3dd2)
+
+![image](https://github.com/user-attachments/assets/00d3dca2-4661-48a0-81a5-cdc64cde0c8e)
+
+![image](https://github.com/user-attachments/assets/1eb3a316-687a-488f-a519-73d5d611e9ae)
+
+![image](https://github.com/user-attachments/assets/1c6a5ff4-6d57-43ef-945e-f6fbe3d8047b)
+
+![image](https://github.com/user-attachments/assets/2ea58ef7-69ee-4d97-9d75-0dbd324b33fb)
+
+После того, как все шаги выполнены, можем увидеть результат проделанной работы.
+
+![image](https://github.com/user-attachments/assets/da80cd9f-3b16-45b8-a53b-40bfc4be5517)
 
 
 
