@@ -294,6 +294,58 @@ __5 пара__
 
 ![image](https://github.com/user-attachments/assets/da80cd9f-3b16-45b8-a53b-40bfc4be5517)
 
+__6 пара__
+
+Для начала переходим в нужную директорию и запускаем контейнеры командой 
+
+`sudo docker compose up -d`
+
+![image](https://github.com/user-attachments/assets/27fff95b-6b6c-4e95-95f5-2122122710cf)
+
+Теперь вводим команду 
+
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 20" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
+
+![image](https://github.com/user-attachments/assets/7a72a9a6-da94-4a72-ab7d-1f019ed4e7e6)
+
+После этого переходим в браузер и в поисковой строке вводим 
+
+`localhost:3000`
+
+Создаем новый `dashboard` 
+
+![image](https://github.com/user-attachments/assets/08e59480-ad1f-4243-9268-a1f2513c7fb1)
+
+Теперь выбираем вкладку `code` и ввыдим переменную `light_metric1`, после чего нажимаем `Run queries` и перехом в новую вкладку, нажав `Apply`.
+
+![image](https://github.com/user-attachments/assets/c553b145-007f-4176-a03d-8534316501f0)
+
+В командной строке вводим команду 
+
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 10" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
+
+Чтобы изменить значение переменной
+
+А затем команду 
+
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 15" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
+
+Чтобы снова изменить значение переменной. Делаем эти шаги для того чтобы отследить изменения на графике.
+
+![image](https://github.com/user-attachments/assets/ad52493c-9d14-4d64-ad8f-c107fa005839)
+
+После проделанных шагов можем увидеть результат на графике
+
+![image](https://github.com/user-attachments/assets/4e1bb05d-6c5f-4892-b5e2-822dce2e6c66)
+
+Далее нужно поменять значение переменной `Connect null values` на `Always`. После чего сохранить и увидеть результат.
+
+![image](https://github.com/user-attachments/assets/1fbb49b1-1c2b-4f31-8b6b-f15927fe8b9a)
+
+![image](https://github.com/user-attachments/assets/1537a30d-9607-40ad-ac58-f2bfa8564079)
+
+
+
 
 
 
