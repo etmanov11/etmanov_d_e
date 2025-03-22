@@ -316,15 +316,13 @@ __6 пара__
 
 ![image](https://github.com/user-attachments/assets/08e59480-ad1f-4243-9268-a1f2513c7fb1)
 
-Теперь выбираем вкладку `code` и ввыдим переменную `light_metric1`, после чего нажимаем `Run queries` и перехом в новую вкладку, нажав `Apply`.
+Теперь выбираем вкладку `code` и вводим переменную `light_metric1`, после чего нажимаем `Run queries`, сохраняем, нажав кнопку `Save` и переходим в новую вкладку, нажав `Apply`.
 
 ![image](https://github.com/user-attachments/assets/c553b145-007f-4176-a03d-8534316501f0)
 
-В командной строке вводим команду 
+В командной строке вводим команду чтобы изменить значение переменной
 
 `echo -e "# TYPE light_metric1 gauge\nlight_metric1 10" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
-
-Чтобы изменить значение переменной
 
 А затем команду 
 
